@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13533" systemVersion="17B1002" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ReminderData" representedClassName=".ReminderData" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="repeatInt" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="repeatTimes" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="taken" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="observer" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="UserObserver" inverseName="reminder" inverseEntity="UserObserver" syncable="YES"/>
+        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserData" inverseName="reminder" inverseEntity="UserData" syncable="YES"/>
+        <relationship name="takenTimes" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="TakeTimes" inverseName="reminder" inverseEntity="TakeTimes" syncable="YES"/>
+    </entity>
+    <entity name="ReminderLate" representedClassName="ReminderLate" syncable="YES" codeGenerationType="class">
+        <attribute name="pillToTake" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quantityToTake" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeToTake" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="userNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="userData" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserData" inverseName="reminderLate" inverseEntity="UserData" syncable="YES"/>
+    </entity>
+    <entity name="TakeTimes" representedClassName=".TakeTimes" syncable="YES">
+        <attribute name="shouldHaveTaken" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="takenTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="reminder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ReminderData" inverseName="takenTimes" inverseEntity="ReminderData" syncable="YES"/>
+    </entity>
+    <entity name="UserData" representedClassName=".UserData" syncable="YES">
+        <attribute name="names" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="token" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="reminder" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ReminderData" inverseName="owner" inverseEntity="ReminderData" syncable="YES"/>
+        <relationship name="reminderLate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ReminderLate" inverseName="userData" inverseEntity="ReminderLate" syncable="YES"/>
+    </entity>
+    <entity name="UserObserver" representedClassName=".UserObserver" syncable="YES">
+        <attribute name="names" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="token" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="reminder" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ReminderData" inverseName="observer" inverseEntity="ReminderData" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="ReminderData" positionX="-54" positionY="9" width="128" height="180"/>
+        <element name="TakeTimes" positionX="-27" positionY="90" width="128" height="90"/>
+        <element name="UserData" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="UserObserver" positionX="-36" positionY="27" width="128" height="105"/>
+        <element name="ReminderLate" positionX="-54" positionY="72" width="128" height="120"/>
+    </elements>
+</model>

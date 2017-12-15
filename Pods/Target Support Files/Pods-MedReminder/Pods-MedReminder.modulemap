@@ -1,0 +1,6 @@
+framework module Pods_MedReminder {
+  umbrella header "Pods-MedReminder-umbrella.h"
+
+  export *
+  module * { export * }
+}

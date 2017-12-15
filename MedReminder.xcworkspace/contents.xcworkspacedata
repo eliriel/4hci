@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:/Users/Eliriel/Desktop/MedReminder/TakeTimes+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/Eliriel/Desktop/MedReminder/TakeTimes+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
+      location = "group:MedReminder.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+</Workspace>
